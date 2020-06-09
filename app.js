@@ -1,20 +1,35 @@
+const typingSpan = document.querySelector(".typing");
 const typeText = ["code.", "drive.", "listen to music.", "go to the gym.", "play guitar."];
-let count = 0;
-let index = 0;
-let currentText = "";
-let textLetter = "";
+const typingDelay = 200;
+const deleteDelay = 100;
+const newTextDelay = 2000;
+let textIndex = 0;
+let letterIndex = 0;
 
-(function type() {
-    if (count === typeText.length) {
-        count = 0;
-    }
-    currentText = typeText[count];
-    textLetter = currentText.slice(0, ++index);
+function type() {
+   if (letterIndex < typeText[textIndex].length) {
+    typingSpan.textContent += typeText[textIndex].charAt(letterIndex);
+    letterIndex++;
+    setTimeout(type, typingDelay);
+   } else {
+       setTimeout(delText, newTextDelay);
+   }
+};
 
-    document.querySelector(".typing").textContent = textLetter;
-    if (textLetter.length === currentText.length) {
-        count++;
-        index = 0;
+function delText() {
+    if (letterIndex > 0) {
+        typingSpan.textContent = typeText[textIndex].substring(0, letterIndex - 1);
+        letterIndex--;
+        setTimeout(delText, deleteDelay);
+    } else {
+        textIndex++;
+        if (textIndex >= typeText.length)
+            textIndex = 0;
+            setTimeout(type, typingDelay + 1000);
     }
-    setTimeout(type, 300);
-})();
+};
+
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(type, typingDelay + 800);
+});
+    
