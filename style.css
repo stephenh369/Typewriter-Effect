@@ -1,8 +1,8 @@
-.typing {
+.cursor {
     position: relative;
 
 }
-.typing::after {
+.cursor::after {
     content: "";
     position: absolute;
     width: 1px;
@@ -27,4 +27,16 @@
     100% {
         opacity: 1;
     }
+}
+
+.solidCursor {
+    position: relative;
+
+}
+.solidCursor::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    border-right: 2px solid black;
 }
