@@ -1,3 +1,36 @@
+/* VARIABLES */
+
+:root {
+    --primary-color: #666;
+    --secondary-color: steelblue;
+    --dark-color: #222;
+    --light-color: #f4f4f4;
+}
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* TEXT AND BODY CSS*/
+
+body {
+    background-color: var(--dark-color);
+    color: var(--primary-color);
+}
+
+.text {
+    display: flex;
+    justify-content: center;
+    margin-top: 20%;
+    font-size: 1.4rem;
+}
+/* TYPING & CURSOR CSS */
+
 .cursor {
     position: relative;
 
@@ -7,7 +40,7 @@
     position: absolute;
     width: 1px;
     height: 100%;
-    border-right: 2px solid black;
+    border-right: 2px solid var(--primary-color);
     animation: blink 0.5s infinite ease-in-out;
 }
 
@@ -38,5 +71,9 @@
     position: absolute;
     width: 1px;
     height: 100%;
-    border-right: 2px solid black;
+    border-right: 2px solid var(--primary-color);
+}
+
+.typing {
+    color: var(--secondary-color);
 }
